@@ -1,0 +1,40 @@
+= link_to t('invoices.new'), new_invoice_path
+
+%h2
+  = t 'invoices.title'
+
+%fieldset
+  = form_for Invoice.new, :url => invoices_path, :method => :get do |f|
+    = select_tag('month', options_for_select( t('date.month_names').each_with_index.collect{|m, i| [m, i]}, @month ))
+    = select_tag('year', options_for_select( @years, @year ))
+    = select_tag('customer_id', options_for_select( @customers.collect {|c| [ c.name, c.id ] }.insert(0, ['', 0]), @customer_id ))
+
+    = f.submit('buscar')
+
+
+%table
+  %tr
+    %th.aleft
+      = t 'invoices.number'
+    %th.aright
+      = t 'invoices.date'
+    %th
+      = t 'invoices.description'
+    %th
+      = t 'invoices.customer'
+    %th
+
+  - @invoices.each do |invoice|
+    %tr
+      %td
+        = invoice.number_year
+      %td.aright
+        = invoice.date
+      %td
+        = invoice.concept
+      %td
+        = invoice.customer.name
+      %td.aright.links_table
+        = link_to image_tag(image_path('glyphicons_051_eye_open.png')), invoice_pdf_path(invoice.id)
+        = link_to image_tag(image_path('glyphicons_151_edit.png')), edit_invoice_path(invoice)
+        = link_to image_tag(image_path('glyphicons_197_remove.png')), url_for(invoice), :method => :delete, :confirm => t('messages.remove_confirmation')

@@ -1,0 +1,209 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+ *= require jquery.ui.datepicker
+*/
+
+body {
+  background: #fbfbfb;
+  font-family: arial;
+  font-size: 14px;
+}
+
+.container {
+  width: 690px;
+  margin: auto;
+  background: #fff;
+  border: 1px solid #eee;
+
+  .field_with_errors {
+    display:inline;
+
+    input, textarea {
+      border: 1px solid #fc2525 !important;
+    }
+  }
+
+  .error_field {
+    color: #fc2525;
+    font-weight:bold;
+    font-size:12px;
+    text-align:center;
+  }
+
+  .messages {
+    font-size:12px;
+    font-weight: bold;
+    text-align: center;
+
+    .success {
+      padding:10px;
+      color: #4da34d;
+      background:#dfefcd;
+    }
+    .error {
+      padding:10px;
+      color: #fc2525;
+      background: #FFDBDB;
+    }
+  }
+
+  nav {
+    background: #eee;
+    height: 37px;
+
+    a {
+      display:block;
+      float:left;
+      line-height: 37px;
+      height: 37px;
+      padding: 0px 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    a:hover {
+      background:#ccc;
+    }
+  }
+
+  .content {
+    padding:20px;
+
+    fieldset {
+      border: 0px;
+      padding:0;
+      float:right;
+      margin-top:-20px;
+      margin-bottom:30px;
+    }
+
+    table{
+      width: 100%;
+      background: #f5f5f5;
+      border-spacing:2;
+      border-collapse:collapse;
+      font-size:13px;
+
+      tr th{
+        color: #555;
+        background: #fcfcfc;
+        border-bottom: 2px solid #555;
+        padding:5px 10px;
+      }
+      tr {
+        td {
+          margin:0px;
+          padding:10px 10px;
+        }
+
+        td.links_table {
+          img {
+            width: 18px;
+            margin-left:5px;
+          }
+        }
+      }
+      tr:nth-child(odd) td{
+        background: #eee;
+      }
+      tr:nth-child(even) td{
+      }
+    }
+  }
+}
+
+header {
+  h1 {
+    text-align: center;
+    margin-top:0px;
+  }
+}
+
+
+fieldset {
+  margin-bottom: 20px;
+}
+
+.aleft {
+  text-align:left;
+}
+.aright {
+  text-align:right;
+}
+.acenter {
+  text-align:center;
+}
+
+.fright {
+  float:right;
+}
+
+input, textarea, input[type="password"] {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:15px;
+    color:#333333;
+    border:1px solid #ccc;
+    padding:8px;
+}
+input[type="text"]:focus, textarea:focus {
+  background-color:#ffffff;
+}
+
+input[type="submit"], input[type="button"], .button{
+    background: #4DA34D;
+    display: inline-block;
+    padding: 5px 10px 6px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:13px;
+    line-height: 1;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    cursor: pointer;
+    outline-style:none;
+    outline-width:0;
+    border:0px;
+    width: auto;
+}
+input[type="submit"]:hover, input[type="button"]:hover, .button:hover{
+    background-color: #329F31 !important;
+    text-decoration:none !important;
+}
+input[type="submit"]:focus, input[type="button"]:focus, .button:focus, 
+input[type="submit"]:active, input[type="button"]:active, .button:active{
+    outline-width:15px;
+    -moz-box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+    background-image: none !important;
+}
+
+.edit_preference, .new_preference, .edit_customer, .new_customer {
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+
+  input.large {
+    width: 600px;
+  }
+  input.medium {
+    width: 100px;
+  }
+  input.short {
+    width: 30px;
+  }
+  textarea {
+    width: 600px;
+    height: 100px;
+  }
+}

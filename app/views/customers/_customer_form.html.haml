@@ -1,0 +1,10 @@
+= render :partial => 'shared/messages_form', :locals => {:entity => @customer}
+
+= customer_f.hidden_field :id
+
+= customer_f.label :name
+= customer_f.text_field :name
+= customer_f.label :address
+= customer_f.text_area :address
+= customer_f.label :nif
+= customer_f.text_field :nif

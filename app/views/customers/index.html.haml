@@ -1,0 +1,23 @@
+
+= link_to t('customers.new'), new_customer_path
+
+%h2
+  = t 'customers.title'
+
+%table
+  %tr
+    %th.aleft
+      = Customer.human_attribute_name(:name)
+    %th.aright
+      = Customer.human_attribute_name(:nif)
+    %th
+
+  - @customers.each do |customer|
+    %tr
+      %td
+        = customer.name
+      %td.aright
+        = customer.nif
+      %td.aright.links_table
+        = link_to image_tag(image_path('glyphicons_151_edit.png')), edit_customer_path(customer)
+        = link_to image_tag(image_path('glyphicons_197_remove.png')), url_for(customer), :method => :delete, :confirm => t('messages.remove_confirmation')

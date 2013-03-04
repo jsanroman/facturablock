@@ -1,0 +1,14 @@
+-# main layout for a logged in user
+-# 
+-#
+!!! 5
+%html
+  %head
+    -# @head is defined in the application ActionController. It contains the metas for the current page
+    - #= render :partial => 'layouts/head_meta', :locals => {:head => @head}
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    = yield

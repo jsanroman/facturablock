@@ -1,0 +1,6 @@
+- entity.errors.each do |attr, msg|
+  .error_field
+    = "#{attr} #{msg}" if entity.errors[attr].first == msg
+
+-if !entity.errors.nil? && entity.errors.size>0
+  %br

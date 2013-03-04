@@ -1,0 +1,40 @@
+= render :partial => 'shared/messages_form', :locals => {:entity => @preference}
+
+%h2
+  = t 'preferences.title'
+
+= form_for @preference, :url => save_preferences_path(@preference), :method => :put do |f|
+
+  %h3
+    = t 'preferences.business_information.title'
+
+  = f.label :business_name, t('preferences.business_information.name')
+  = f.text_field :business_name, {:class => 'large'}
+
+  = f.label :business_address, t('preferences.business_information.address')
+  = f.text_area :business_address
+
+  = f.label :business_nif, t('preferences.business_information.nif')
+  = f.text_field :business_nif, {:class => 'aright medium'}
+
+  = f.label :business_phone, t('preferences.business_information.phone')
+  = f.text_field :business_phone, {:class => 'aright medium'}
+
+  = f.label :business_fax, t('preferences.business_information.fax')
+  = f.text_field :business_fax, {:class => 'aright medium'}
+
+  = f.label :business_email, t('preferences.business_information.email')
+  = f.text_field :business_email
+
+
+  %h3
+    = t 'preferences.taxes.title'
+
+  = f.label :vat_default, t('preferences.taxes.vat')
+  = (f.text_field :vat_default, {:class => 'aright short'})+' %'
+
+  = f.label :irpf_default, t('preferences.taxes.irpf')
+  = (f.text_field :irpf_default, {:class => 'aright short'})+' %'
+
+  %div.content_buttons
+    = f.submit(t('preferences.buttons.save'))

@@ -1,0 +1,64 @@
+# Additional translations at http://github.com/plataformatec/devise/wiki/I18n
+# Translation by William Wong Garay (willywg) https://github.com/willywg
+
+es:
+  errors:
+    messages:
+      expired: "ha expirado, por favor solicita una nueva"
+      not_found: "no se encontró"
+      already_confirmed: "ya fue confirmado, por favor intenta iniciar sesión"
+      not_locked: "no estaba bloqueado"
+      not_saved:
+        one: "Un error ocurrió al tratar de guardar %{resource}:"
+        other: "%{count} errores ocurrieron al tratar de guardar %{resource}:"
+
+  devise:
+    failure:
+      already_authenticated: 'Ya has iniciado una sesión.'
+      unauthenticated: 'Tienes que iniciar sesión o registrarte para poder continuar.'
+      unconfirmed: 'Tienes que confirmar tu cuenta para poder continuar.'
+      locked: 'Tu cuenta está bloqueada.'
+      invalid: 'Contraseña o Correo inválidos.'
+      invalid_token: 'Código de autenticación inválido.'
+      timeout: 'Tu sesión expiró, por favor inicia sesión nuevamente para continuar.'
+      inactive: 'Tu cuenta aún no ha sido activada.'
+    sessions:
+      user:
+        signed_in: ''
+        signed_out: ''
+    passwords:
+      link: '¿Olvidaste tu contraseña?'
+      send_instructions: 'Vas a recibir un correo con instrucciones de cómo resetear tu contraseña en unos pocos minutos.'
+      updated: 'Tu contraseña fue cambiada. Ya iniciaste sesión.'
+      send_paranoid_instructions: "Si tu Correo existe en nuestra base de datos, vas a recibir un correo con instrucciones sobre cómo resetear tu contraseña en tu bandeja de entrada."
+    confirmations:
+      link: "¿No recibiste instrucciones de confirmación?"
+      send_instructions: 'Vas a recibir un correo con instrucciones sobre cómo confirmar tu cuenta en unos pocos minutos.'
+      send_paranoid_instructions: 'Si tu Correo existe en nuestra base de datos, vas a recibir un correo con instrucciones sobre cómo confirmar tu cuenta en unos pocos minutos.'
+      confirmed: 'Tu cuenta fue confirmada. Ya iniciaste sesión.'
+    registrations:
+      link: 'Crear cuenta'
+      signed_up: 'Bienvenido. Tu cuenta fue creada.'
+      inactive_signed_up: 'En unos segundos recibirás un email desde donde debes confirmar tu cuenta, es el útimo paso para entrar en mitwiz :)'
+      updated: 'Tu cuenta fue actualizada.'
+      destroyed: 'Fue grato tenerte con nosotros. Tu cuenta fue cancelada.'
+    unlocks:
+      link: "¿No recibiste instrucciones para desbloquear?"
+      send_instructions: 'Vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.'
+      send_paranoid_instructions: 'Si tu cuenta existe, vas a recibir instrucciones para desbloquear tu cuenta en unos pocos minutos.'
+      unlocked: 'Tu cuenta fue desbloqueada. Ya iniciaste sesión.'
+    omniauth_callbacks:
+      success: 'La cuenta %{kind} ha sido autorizada satisfactoriamente.'
+      failure: 'La cuenta %{kind} no ha sido autorizada porque "%{reason}".'
+    mailer:
+      confirmation_instructions: 
+        subject: 'Instrucciones de confirmación'
+        welcome: 'Bienvenido %{user}!'
+        content: 'Confirma tu cuenta pulsando en el siguiente enlace:'
+      reset_password_instructions:
+        subject: 'Instrucciones de recuperación de contraseña'
+        content: 'Si has olvidado tu contraseña puedes cambiarla pulsando en el siguiente enlace:'
+        content2: "Si tú no has pedido este cambio de contraseña, por favor ignora este correo. Tu contraseña no se cambiará a no ser que pulses en el enlace"
+      unlock_instructions:
+        subject: 'Instrucciones para desbloquear'
+        content: 'Tu cuenta ha sido bloqueada por una excesiva cantidad de intentos de acceso sin éxito.\n\nPulsa el link de abajo para desbloquear tu cuenta:'

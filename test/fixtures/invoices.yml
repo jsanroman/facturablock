@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: 
+  id: 1
+  number: 1
+  date: '2012-09-05'
+  concept: 'concept invoice 1'
+  vat: 18
+  irpf: 7
+  customer_id: 1
+  user_id: 1
+
+# column: value
+#
+two: 
+  id: 2
+  number: 1
+  date: '2013-01-01'
+  concept: 'concept invoice 2'
+  vat: 21
+  irpf: 9
+  customer_id: 2
+  user_id: 2
+
+#  column: value

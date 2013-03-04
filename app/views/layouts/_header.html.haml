@@ -1,0 +1,9 @@
+%header
+
+  - if user_signed_in?
+    %div.aright
+      = current_user.email
+      =link_to t("header.sign_out"), destroy_user_session_path, :method => :delete
+
+  %h1
+    Factura Block

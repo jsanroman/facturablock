@@ -1,0 +1,117 @@
+= render :partial => 'shared/messages_form', :locals => {:entity => @invoice}
+
+= invoice_f.hidden_field :id
+
+%div
+  = invoice_f.text_field :concept, {:placeholder => Invoice.human_attribute_name(:concept)}
+
+%fieldset.header-left
+  %div
+    %strong
+      = current_user.preference.business_name
+  %div
+    = current_user.preference.business_address
+  %div
+    = current_user.preference.business_nif
+  %div
+    = current_user.preference.business_phone
+  %div
+    = current_user.preference.business_email
+
+%fieldset.header-right
+  %div
+    = invoice_f.label :date
+    = invoice_f.text_field :date, {:class => 'datepicker'}
+
+  %div
+    = invoice_f.label :number
+    = invoice_f.text_field :number
+    = '/'+@invoice.year.to_s
+
+  %div
+    = invoice_f.label :customer
+    = select_tag('invoice[customer_id]', options_for_select( @customers.collect {|c| [ c.name, c.id ] }, @invoice.customer_id ))
+    = link_to 'nuevo cliente', new_customer_path()
+
+%table.invoice_items
+  %thead
+    %tr
+      %th
+        = InvoiceItem.human_attribute_name(:quantity)
+      %th
+        = InvoiceItem.human_attribute_name(:concept)
+      %th
+        = InvoiceItem.human_attribute_name(:amount)
+      %th.aright
+        = InvoiceItem.human_attribute_name(:total)
+      %th
+
+  %tbody
+    - @invoice.invoice_items.each do |invoice_item|
+      %tr
+        = hidden_field_tag "invoice_items[#{invoice_item.id}][id]", invoice_item.id
+        %td.quantity
+          = text_field_tag "invoice_items[#{invoice_item.id}][quantity]", invoice_item.quantity
+        %td.concept
+          = text_area_tag "invoice_items[#{invoice_item.id}][concept]", invoice_item.concept
+        %td.amount
+          = text_field_tag "invoice_items[#{invoice_item.id}][amount]", invoice_item.amount
+        %td.base_amount
+          = number_to_currency invoice_item.base_amount
+        %td.links
+          = link_to image_tag(image_path('glyphicons_191_circle_minus.png')), '#', {:class=>'delete_before_el'}
+
+    - if @invoice.invoice_items.nil? || !(@invoice.invoice_items.size>0)
+      %tr
+        = hidden_field_tag "invoice_items[first_invoice_item_field][id]"
+        %td.quantity
+          = text_field_tag "invoice_items[first_invoice_item_field][quantity]"
+        %td.concept
+          = text_area_tag "invoice_items[first_invoice_item_field][concept]"
+        %td.amount
+          = text_field_tag "invoice_items[first_invoice_item_field][amount]"
+        %td.base_amount
+          = number_to_currency 0
+        %td.links
+
+    %tr#new_invoice_item
+      = hidden_field_tag "invoice_items[new_invoice_item_field][id]"
+      %td.quantity
+        = text_field_tag "invoice_items[new_invoice_item_field][quantity]"
+      %td.concept
+        = text_area_tag "invoice_items[new_invoice_item_field][concept]"
+      %td.amount
+        = text_field_tag "invoice_items[new_invoice_item_field][amount]"
+      %td.base_amount
+        = number_to_currency 0
+      %td.links
+        = link_to image_tag(image_path('glyphicons_191_circle_minus.png')), '#', {:class=>'delete_before_el'}
+
+
+= link_to image_tag(image_path('glyphicons_190_circle_plus.png')), '#', {:class => 'link_add_invoice_item'}
+
+.summary_amount
+  %div
+    %label
+      = t('invoices.base_amount')
+    %span.amount
+      = number_to_currency @invoice.base_amount
+
+  %div
+    %label
+      = t('invoices.vat', :vat_amount=> (invoice_f.text_field :vat)).html_safe
+    %span.amount
+      = number_to_currency @invoice.vat_amount
+
+  %div
+    %label
+      = t('invoices.irpf', :irpf_amount=> (invoice_f.text_field :irpf)).html_safe
+    %span.amount
+      = number_to_currency @invoice.irpf_amount
+
+  %div
+    %strong
+      %label
+        = t('invoices.total')
+      %span.amount
+        = number_to_currency @invoice.total_amount

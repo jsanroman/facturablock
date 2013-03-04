@@ -1,0 +1,89 @@
+- # for print pdf invoice
+
+- tr_pdf_items = 'padding:5px;border-bottom:2px solid;'
+- td_pdf_items = 'border-bottom:1px solid;border-right:1px solid;padding:5px;'
+
+%h1
+  = "Factura #{invoice.number_year}"
+
+%table{:style=>"font-size:13px;"}
+
+  %tr
+    %td{ :style => 'width:400px;' }
+      %p
+        Número:
+        = invoice.number_year
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        Fecha:
+        = invoice.date
+      %div
+        = current_user.preference.business_name
+        %div
+          = current_user.preference.business_address
+        %div
+          = current_user.preference.business_nif
+        %div
+          Tlfno:
+          = current_user.preference.business_phone
+
+    %td{ :style => 'width:200px;' }
+      %div
+        %strong
+          = invoice.customer.name
+      %div
+        = invoice.customer.address
+      %div
+        = invoice.customer.nif
+
+  %tr
+    %td{:colspan=>2}
+      %table.invoice_items_pdf{ :style => 'margin-top:30px;margin-bottom:30px; font-size:14px;border-spacing: 0 0px;'}
+        %tr
+          %th{ :style => 'text-align:right;width:80px;'+tr_pdf_items}
+            Cantidad
+          %th{:style => 'text-align:center;width:400px;'+tr_pdf_items}
+            Concepto
+          %th{ :style => 'text-align:right;width:80px;'+tr_pdf_items}
+            Importe
+          %th{ :style => 'text-align:right;width:100px;'+tr_pdf_items}
+            Total
+
+          - invoice.invoice_items.each do |invoice_item|
+            %tr
+              %td{ :style => 'text-align:right;border-left:1px solid;'+td_pdf_items}
+                = invoice_item.quantity
+              %td{ :style => 'text-align:left;'+td_pdf_items}
+                = invoice_item.concept
+              %td{ :style => 'text-align:right;'+td_pdf_items}
+                = number_to_currency.call invoice_item.amount
+              %td{ :style => 'text-align:right;'+td_pdf_items}
+                = number_to_currency.call invoice_item.base_amount
+
+  %tr
+    %td{:colspan=>2}
+      %table{:style=>'float:right;'}
+        %tr
+          %td{:style => 'width:150px;'}
+            = I18n.t('invoices.base_amount')
+          %td{:style=>'text-align:right;width:70px;'}
+            = number_to_currency.call invoice.base_amount
+
+        %tr
+          %td
+            = I18n.t('invoices.vat', :vat_amount=> (invoice.vat)).html_safe
+          %td{:style=>'text-align:right;'}
+            = number_to_currency.call invoice.vat_amount
+
+        %tr
+          %td
+            = I18n.t('invoices.irpf', :irpf_amount=> (invoice.irpf)).html_safe
+          %td{:style=>'text-align:right;'}
+            = number_to_currency.call invoice.irpf_amount
+
+        %tr
+          %td
+            %strong
+              = I18n.t('invoices.total')
+          %td{:style=>'text-align:right;'}
+            %strong
+              = number_to_currency.call invoice.total_amount

@@ -1,0 +1,58 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  header:
+    sign_out: "Salir"
+
+  back: "Volver"
+
+  messages:
+    success: "Sus datos han sido guardados correctamente"
+    success_remove: "Los datos han sido eliminados correctamente"
+    error: "Se ha producido un error"
+    remove_confirmation: "¿Seguro que desea eliminar este registro?"
+
+  menu: 
+    invoices: "Facturas"
+    customers: "Clientes"
+    preferences: "Preferencias"
+
+  invoices:
+    new: "Nueva factura"
+    title: "Facturas"
+    base_amount: "Base imponible"
+    vat: "IVA (%{vat_amount}%)"
+    irpf: "IRPF (%{irpf_amount}%)"
+    total: "Total"
+    buttons:
+      create: "Crear factura"
+      update: "Actualizar factura"
+
+    invoice_items:
+      total: "Total"
+
+  customers:
+    new: "Nuevo cliente"
+    title: "Clientes"
+    buttons:
+      create: "Crear cliente"
+      update: "Actualizar cliente"
+
+  preferences:
+    msg_required: "Para poder continuar debe guardar sus preferencias"
+    title: "Preferencias"
+    business_information: 
+      title: "Información de tu empresa"
+      name: "Razón social"
+      address: "Dirección"
+      nif: "Nif"
+      phone: "Teléfono"
+      fax: "Fax"
+      email: "Email"
+    taxes:
+      title: "Impuestos por defecto"
+      vat: "IVA"
+      irpf: "IRPF"
+    buttons:
+      save: "Guardar"

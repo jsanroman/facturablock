@@ -1,0 +1,182 @@
+// Place all the styles related to the invoices controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new_invoice_item {
+	display:none;
+}
+
+form.edit_invoice, form.new_invoice {
+  #invoice_concept {
+    margin-top:10px;
+    margin-bottom:30px;
+    width:600px;
+  }
+
+  .header-left {
+    background:none;
+    float:left;
+    width:210px;
+    padding-left:0px;
+  }
+
+  .header-right {
+    background: none;
+    margin-right:20px;
+    -moz-border-radius:3px;
+    -webkit-border-radius: 3px;
+
+    div {
+      margin-bottom: 5px;
+    }
+
+    label {
+      display:inline-block;
+      width:75px;
+    }
+
+    input {
+      padding: 4px 10px;
+    }
+
+    #invoice_number {
+      width: 25px;
+      text-align:right;
+    }
+    #invoice_date {
+      width:75px;
+    }
+    a {
+      font-size:12px;
+    }
+  }
+
+
+  table.invoice_items {
+    background: #fff;
+    margin-top:30px;
+    border-collapse:separate;
+    border-spacing: 0 4px;
+
+    thead {
+      tr {
+        th {
+          background: #fff;
+          border:0;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          background:#fff !important;
+          border-top: 1px #aaa solid;
+          border-bottom: 1px #aaa solid;
+          padding:0px;
+
+          input, textarea {
+            border:0;
+            font-size: 13px;
+          }
+        }
+        td.quantity {
+          border-left: 1px #aaa solid;
+          border-right: 1px #ccc dotted;
+          -moz-border-radius-bottomleft:3px;
+          -webkit-border-bottom-left-radius: 3px;
+          -moz-border-radius-topleft:3px;
+          -webkit-border-top-left-radius: 3px;
+
+          input {
+            width:30px;
+            text-align:right;
+          }
+        }
+        td.amount {
+          border-right: 1px #ccc dotted;
+          input {
+            width:50px;
+            text-align:right;
+          }
+        }
+        td.concept {
+          border-right: 1px #ccc dotted;
+
+          textarea {
+            width:390px;
+            height:22px;
+          }
+        }
+        td.base_amount {
+          width:70px;
+          padding: 0px 5px;
+          text-align:right;
+
+          border-right: 1px #aaa solid;
+          -moz-border-radius-bottomright:3px;
+          -webkit-border-bottom-right-radius: 3px;
+          -moz-border-radius-topright:3px;
+          -webkit-border-top-right-radius: 3px;
+        }
+        td.links {
+          border: 0;
+          padding-left:5px;
+
+          .delete_before_el img {
+            width: 15px;
+            margin-left:5px;
+          }
+        }
+      }
+    }
+  }
+
+  .link_add_invoice_item {
+    float:right;
+    margin-top:5px;
+    margin-right:1px;
+
+    img {
+      width:15px;
+    }
+  }
+
+  .summary_amount {
+    margin-top:50px;
+    margin-right:20px;
+    text-align:right;
+
+    label {
+      display:inline-block;
+      width: 150px;
+    }
+
+    span.amount {
+      display:inline-block;
+      width: 75px;
+    }
+
+	  div {
+      margin-bottom: 5px;
+
+	    input {
+        text-align:right;
+	      padding: 2px 1px;
+	      font-size: 13px;
+	      margin:0px;
+	      border:1px #ccc solid;
+	      border-bottom:1px #ccc solid;
+	      width:25px;
+	    }
+	  }
+  }
+
+  .content_buttons {
+    text-align:right;
+    margin:20px 20px 0px 20px;
+    input[type="submit"] {
+      padding:10px 20px;
+    }
+  }
+}

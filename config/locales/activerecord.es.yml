@@ -1,0 +1,53 @@
+es:
+  activerecord:
+    models:
+      user: 'usuario'
+      invoice: 'factura'
+      customer: 'cliente'
+      preference: 'preferencias'
+    attributes:
+      invoice:
+        number: 'Número'
+        concept: 'Título interno'
+        date: 'Fecha'
+        customer: 'Cliente'
+      invoice_item:
+        quantity: 'Cant.'
+        concept: 'Concepto'
+        amount: 'Importe'
+      customer:
+        name: 'Razón social'
+        address: 'Dirección'
+        nif: 'Nif'
+
+    errors: 
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Debes insertar un email"
+      template: 
+        body: Ha habido problemas con los siguientes campos
+        header: 
+          one: 1 error impidió que {{model}} se guardase
+          other: "{{count}} errores impidieron que {{model}} se guardase"  
+      messages:
+        inclusion: "no está incluido en la lista"
+        exclusion: "está reservado"
+        invalid: "no es válido"
+        confirmation: "no coincide con la confirmación"
+        accepted: "debe ser aceptado"
+        empty: "no puede estar vacío"
+        blank: "no puede dejarse en blanco"
+        too_long: "es demasiado largo (el máximo son {{count}} caracteres)"
+        too_short: "es demasiado corto (el mínimo son {{count}} caracteres)"
+        wrong_length: "el tamaño no es correcto (debe tener {{count}} caracteres)"
+        taken: "ya está en uso"
+        not_a_number: "no es un número"
+        greater_than: "debe ser mayor que {{count}}"
+        greater_than_or_equal_to: "debe ser mayor o o igual que {{count}}"
+        equal_to: "debe ser igual a {{count}}"
+        less_than: "debe ser menor que {{count}}"
+        less_than_or_equal_to: "debe ser menor o o igual a {{count}}"
+        odd: "debe ser impar"
+        even: "debe ser par"
